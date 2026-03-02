@@ -1,1 +1,599 @@
-<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Document</title>\n</head>\n<body>\n    <h1>Current Date and Time</h1>\n    <p>Current Date and Time (UTC): 2026-03-02 18:32:49</p>\n</body>\n</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CreditCardGyaan - Compare Best Credit Cards in India 2026</title>
+  <meta name="description" content="Compare 50+ best credit cards in India. Find top cashback, travel, shopping & fuel credit cards. Apply online instantly."/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Poppins',sans-serif;background:#F7F8FA;color:#2C2C2C;}
+
+    /* NAV */
+    nav{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.08);position:sticky;top:0;z-index:100;}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:65px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-icon{width:38px;height:38px;background:linear-gradient(135deg,#1A3C6E,#2563EB);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;}
+    .logo-text{font-size:18px;font-weight:700;color:#1A3C6E;}
+    .logo-text span{color:#F5A623;}
+    .nav-links{display:flex;gap:28px;list-style:none;}
+    .nav-links a{text-decoration:none;color:#555;font-size:14px;font-weight:500;transition:color .2s;}
+    .nav-links a:hover{color:#1A3C6E;}
+    .nav-cta{background:#1A3C6E;color:#fff!important;padding:8px 18px;border-radius:8px;font-weight:600!important;}
+    .nav-cta:hover{background:#F5A623!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .hamburger span{width:24px;height:2px;background:#1A3C6E;border-radius:2px;display:block;}
+    .mobile-menu{display:none;background:#fff;border-top:1px solid #eee;padding:16px 20px;}
+    .mobile-menu.open{display:block;}
+    .mobile-menu a{display:block;padding:10px 0;color:#555;text-decoration:none;font-size:15px;border-bottom:1px solid #f5f5f5;}
+
+    /* HERO */
+    .hero{background:linear-gradient(135deg,#1A3C6E 0%,#2563EB 100%);color:#fff;padding:70px 20px 80px;}
+    .hero-inner{max-width:1200px;margin:0 auto;text-align:center;}
+    .hero-badge{display:inline-block;background:rgba(245,166,35,0.2);border:1px solid #F5A623;color:#F5A623;padding:5px 16px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:20px;letter-spacing:1px;}
+    .hero h1{font-size:44px;font-weight:800;line-height:1.2;margin-bottom:16px;}
+    .hero h1 span{color:#F5A623;}
+    .hero p{font-size:17px;opacity:0.85;max-width:560px;margin:0 auto 36px;}
+    .filter-bar{background:#fff;border-radius:16px;padding:8px;display:inline-flex;flex-wrap:wrap;gap:8px;box-shadow:0 8px 30px rgba(0,0,0,0.2);justify-content:center;}
+    .filter-btn{padding:10px 22px;border-radius:10px;border:none;cursor:pointer;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;transition:all .2s;color:#555;background:transparent;}
+    .filter-btn.active,.filter-btn:hover{background:#1A3C6E;color:#fff;}
+    .hero-stats{display:flex;justify-content:center;gap:50px;margin-top:50px;flex-wrap:wrap;}
+    .stat{text-align:center;}
+    .stat-num{font-size:32px;font-weight:800;color:#F5A623;}
+    .stat-label{font-size:13px;opacity:0.8;margin-top:2px;}
+
+    /* CARDS */
+    .section{max-width:1200px;margin:0 auto;padding:60px 20px;}
+    .section-title{font-size:28px;font-weight:700;color:#1A3C6E;margin-bottom:6px;}
+    .section-sub{color:#666;font-size:15px;margin-bottom:36px;}
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;}
+    .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 15px rgba(0,0,0,0.07);transition:transform .25s,box-shadow .25s;border:1px solid #eee;}
+    .card:hover{transform:translateY(-5px);box-shadow:0 12px 35px rgba(0,0,0,0.13);}
+    .card-header{padding:22px 20px;display:flex;align-items:center;gap:14px;}
+    .card-img-placeholder{width:70px;height:44px;border-radius:8px;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;text-align:center;padding:4px;flex-shrink:0;border:1px solid rgba(255,255,255,0.3);}
+    .card-title{color:#fff;font-size:14px;font-weight:700;line-height:1.3;}
+    .card-bank{color:rgba(255,255,255,0.75);font-size:11px;margin-top:3px;}
+    .card-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px;}
+    .badge{padding:3px 9px;border-radius:20px;font-size:10px;font-weight:600;}
+    .badge-cashback{background:#FEF3C7;color:#D97706;}
+    .badge-travel{background:#DBEAFE;color:#1D4ED8;}
+    .badge-shopping{background:#FCE7F3;color:#BE185D;}
+    .badge-fuel{background:#D1FAE5;color:#065F46;}
+    .badge-rewards{background:#EDE9FE;color:#6D28D9;}
+    .badge-free{background:#DCFCE7;color:#15803D;}
+    .card-body{padding:20px;}
+    .rating{display:flex;align-items:center;gap:6px;margin-bottom:14px;}
+    .stars{color:#F5A623;font-size:15px;letter-spacing:1px;}
+    .rating-num{font-size:14px;font-weight:700;color:#333;}
+    .rating-count{font-size:12px;color:#999;}
+    .card-fees{display:flex;gap:10px;margin-bottom:16px;}
+    .fee-box{flex:1;background:#F7F8FA;border-radius:10px;padding:10px 8px;text-align:center;}
+    .fee-label{font-size:10px;color:#888;margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px;}
+    .fee-val{font-size:13px;font-weight:700;color:#1A3C6E;}
+    .fee-val.free{color:#15803D;}
+    .card-features{list-style:none;margin-bottom:18px;}
+    .card-features li{display:flex;align-items:flex-start;gap:9px;padding:7px 0;border-bottom:1px solid #f5f5f5;font-size:13px;color:#444;line-height:1.4;}
+    .card-features li:last-child{border-bottom:none;}
+    .feat-icon{color:#22c55e;font-size:14px;flex-shrink:0;margin-top:1px;font-weight:700;}
+    .apply-btn{display:block;width:100%;padding:13px;background:linear-gradient(135deg,#1A3C6E,#2563EB);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;transition:all .2s;letter-spacing:.3px;}
+    .apply-btn:hover{background:linear-gradient(135deg,#F5A623,#f97316);transform:scale(1.01);}
+
+    /* WHY US */
+    .why-section{background:#fff;padding:60px 20px;}
+    .why-inner{max-width:1200px;margin:0 auto;text-align:center;}
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px;margin-top:36px;text-align:left;}
+    .why-card{background:#F7F8FA;border-radius:14px;padding:26px 20px;border:1px solid #eee;transition:box-shadow .2s;}
+    .why-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+    .why-icon{font-size:34px;margin-bottom:12px;}
+    .why-title{font-size:16px;font-weight:700;color:#1A3C6E;margin-bottom:8px;}
+    .why-desc{font-size:13px;color:#666;line-height:1.65;}
+
+    /* CREDIT SCORE */
+    .score-section{background:linear-gradient(135deg,#1A3C6E,#2563EB);padding:65px 20px;color:#fff;text-align:center;}
+    .score-inner{max-width:580px;margin:0 auto;}
+    .score-inner h2{font-size:30px;font-weight:800;margin-bottom:10px;}
+    .score-inner p{opacity:0.85;margin-bottom:30px;font-size:15px;}
+    .score-input{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+    .score-input input{padding:13px 20px;border-radius:10px;border:none;font-family:'Poppins',sans-serif;font-size:15px;width:250px;outline:none;color:#333;}
+    .score-input button{padding:13px 26px;background:#F5A623;color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s;}
+    .score-input button:hover{background:#e59400;}
+
+    /* FOOTER */
+    footer{background:#0f2449;color:#fff;padding:55px 20px 30px;}
+    .footer-inner{max-width:1200px;margin:0 auto;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:44px;}
+    .footer-logo{font-size:22px;font-weight:800;margin-bottom:12px;}
+    .footer-logo span{color:#F5A623;}
+    .footer-desc{font-size:13px;opacity:0.65;line-height:1.75;max-width:280px;}
+    .footer-col h4{font-size:14px;font-weight:700;margin-bottom:18px;color:#F5A623;text-transform:uppercase;letter-spacing:.5px;}
+    .footer-col ul{list-style:none;}
+    .footer-col ul li{margin-bottom:11px;}
+    .footer-col ul li a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:13px;transition:color .2s;}
+    .footer-col ul li a:hover{color:#F5A623;}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;opacity:0.6;flex-wrap:wrap;gap:10px;}
+    .disclaimer{margin-top:18px;font-size:11px;opacity:0.45;line-height:1.7;}
+
+    /* NO RESULTS */
+    .no-results{text-align:center;padding:60px 20px;color:#888;font-size:16px;display:none;}
+    .no-results.show{display:block;}
+
+    @media(max-width:900px){
+      .footer-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:768px){
+      .hero h1{font-size:28px;}
+      .nav-links{display:none;}
+      .hamburger{display:flex;}
+      .hero-stats{gap:20px;}
+      .stat-num{font-size:26px;}
+      .cards-grid{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:480px){
+      .hero{padding:50px 16px 60px;}
+      .filter-btn{padding:8px 14px;font-size:13px;}
+      .footer-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <div class="logo-icon">CCG</div>
+      <div class="logo-text">CreditCard<span>Gyaan</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#cards">Compare Cards</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#score">Credit Score</a></li>
+      <li><a href="#cards" class="nav-cta">Apply Now →</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#cards" onclick="toggleMenu()">Compare Cards</a>
+    <a href="#why" onclick="toggleMenu()">Why Us</a>
+    <a href="#score" onclick="toggleMenu()">Credit Score</a>
+    <a href="#cards" onclick="toggleMenu()" style="color:#1A3C6E;font-weight:700;">Apply Now →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🇮🇳 INDIA'S TRUSTED CREDIT CARD COMPARISON SITE</div>
+    <h1>Compare <span>50+ Credit Cards</span><br/>Find Your Perfect Match</h1>
+    <p>Compare fees, rewards, cashback & eligibility across top Indian banks — all in one place. 100% free & unbiased.</p>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCards('all',this)">🃏 All Cards</button>
+      <button class="filter-btn" onclick="filterCards('cashback',this)">💰 Cashback</button>
+      <button class="filter-btn" onclick="filterCards('travel',this)">✈️ Travel</button>
+      <button class="filter-btn" onclick="filterCards('shopping',this)">🛒 Shopping</button>
+      <button class="filter-btn" onclick="filterCards('fuel',this)">⛽ Fuel</button>
+      <button class="filter-btn" onclick="filterCards('rewards',this)">🎁 Rewards</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Credit Cards</div></div>
+      <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Banks Listed</div></div>
+      <div class="stat"><div class="stat-num">1L+</div><div class="stat-label">Happy Users</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Unbiased Reviews</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIT CARDS -->
+<section class="section" id="cards">
+  <div class="section-title">🏆 Best Credit Cards in India 2026</div>
+  <div class="section-sub">Showing top-rated cards based on rewards, fees & real user reviews</div>
+  <div class="cards-grid" id="cardsGrid">
+
+    <!-- HDFC Millennia -->
+    <div class="card" data-type="cashback shopping">
+      <div class="card-header" style="background:linear-gradient(135deg,#1A3C6E,#2563EB);">
+        <div class="card-img-placeholder">HDFC<br/>Bank</div>
+        <div>
+          <div class="card-title">HDFC Millennia Credit Card</div>
+          <div class="card-bank">HDFC Bank</div>
+          <div class="card-badges">
+            <span class="badge badge-cashback">💰 Cashback</span>
+            <span class="badge badge-shopping">🛒 Shopping</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="rating"><div class="stars">★★★★★</div><div class="rating-num">4.5</div><div class="rating-count">(2,341 reviews)</div></div>
+        <div class="card-fees">
+          <div class="fee-box"><div class="fee-label">Joining Fee</div><div class="fee-val">₹999+GST</div></div>
+          <div class="fee-box"><div class="fee-label">Annual Fee</div><div class="fee-val">₹999+GST</div></div>
+          <div class="fee-box"><div class="fee-label">Best For</div><div class="fee-val">Shopping</div></div>
+        </div>
+        <ul class="card-features">
+          <li><span class="feat-icon">✓</span>5% cashback on Amazon, Flipkart & Myntra</li>
+          <li><span class="feat-icon">✓</span>1% cashback on all other spends</li>
+          <li><span class="feat-icon">✓</span>Free airport lounge access (8 visits/year)</li>
+          <li><span class="feat-icon">✓</span>Welcome gift worth ₹1,000</li>
+        </ul>
+        <a href="https://wee.bnking.in/c/ZDk3MTI4M" target="_blank" class="apply-btn">Apply Now →</a>
+      </div>
+    </div>
+
+    <!-- Flipkart Axis -->
+    <div class="card" data-type="shopping cashback">
+      <div class="card-header" style="background:linear-gradient(135deg,#b91c1c,#ef4444);">
+        <div class="card-img-placeholder">Axis<br/>Bank</div>
+        <div>
+          <div class="card-title">Flipkart Axis Bank Credit Card</div>
+          <div class="card-bank">Axis Bank</div>
+          <div class="card-badges">
+            <span class="badge badge-cashback">💰 Cashback</span>
+            <span class="badge badge-shopping">🛒 Shopping</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="rating"><div class="stars">★★★★☆</div><div class="rating-num">4.3</div><div class="rating-count">(1,876 reviews)</div></div>
+        <div class="card-fees">
+          <div class="fee-box"><div class="fee-label">Joining Fee</div><div class="fee-val">₹500+GST</div></div>
+          <div class="fee-box"><div class="fee-label">Annual Fee</div><div class="fee-val">₹500+GST</div></div>
+          <div class="fee-box"><div class="fee-label">Best For</div><div class="fee-val">Flipkart</div></div>
+        </div>
+        <ul class="card-features">
+          <li><span class="feat-icon">✓</span>5% unlimited cashback on Flipkart</li>
+          <li><span class="feat-icon">✓</span>4% cashback on Swiggy, Uber & PVR</li>
+          <li><span class="feat-icon">✓</span>1.5% cashback on all other spends</li>
+          <li><span class="feat-icon">✓</span>Welcome vouchers worth ₹500</li>
+        </ul>
+        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+      </div>
+    </div>
+
+    <!-- SBI Elite -->
+    <div class="card" data-type="travel rewards">
+      <div class="card-header" style="background:linear-gradient(135deg,#1e3a5f,#0ea5e9);">
+        <div class="card-img-placeholder">SBI<br/>Card</div>
+        <div>
+          <div class="card-title">SBI Card ELITE</div>
+          <div class="card-bank">State Bank of India</div>
+          <div class="card-badges">
+            <span class="badge badge-travel">✈️ Travel</span>
+            <span class="badge badge-rewards">🎁 Rewards</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="rating"><div class="stars">★★★★★</div><div class="rating-num">4.6</div><div class="rating-count">(3,102 reviews)</div></div>
+        <div class="card-fees">
+          <div class="fee-box"><div class="fee-label">Joining Fee</div><div class="fee-val">₹4,999</div></div>
+          <div class="fee-box"><div class="fee-label">Annual Fee</div><div class="fee-val">₹4,999</div></div>
+          <div class="fee-box"><div class="fee-label">Best For</div><div class="fee-val">Travel</div></div>
+        </div>
+        <ul class="card-features">
+          <li><span class="feat-icon">✓</span>6 reward points per ₹100 spent</li>
+          <li><span class="feat-icon">✓</span>Free domestic airport lounge (2/quarter)</li>
+          <li><span class="feat-icon">✓</span>Welcome e-voucher worth ₹5,000</li>
+          <li><span class="feat-icon">✓</span>Free movie tickets (2 per month)</li>
+        </ul>
+        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+      </div>
+    </div>
+
+    <!-- ICICI HPCL -->
+    <div class="card" data-type="fuel cashback">
+      <div class="card-header" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">
+        <div class="card-img-placeholder">ICICI<br/>Bank</div>
+        <div>
+          <div class="card-title">ICICI HPCL Super Saver Card</div>
+          <div class="card-bank">ICICI Bank</div>
+          <div class="card-badges">
+            <span class="badge badge-fuel">⛽ Fuel</span>
+            <span class="badge badge-cashback">💰 Cashback</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="rating"><div class="stars">★★★★☆</div><div class="rating-num">4.1</div><div class="rating-count">(987 reviews)</div></div>
+        <div class="card-fees">
+          <div class="fee-box"><div class="fee-label">Joining Fee</div><div class="fee-val">₹500+GST</div></div>
+          <div class="fee-box"><div class="fee-label">Annual Fee</div><div class="fee-val">₹500+GST</div></div>
+          <div class="fee-box"><div class="fee-label">Best For</div><div class="fee-val">Fuel</div></div>
+        </div>
+        <ul class="card-features">
+          <li><span class="feat-icon">✓</span>5% cashback on HPCL fuel & LPG</li>
+          <li><span class="feat-icon">✓</span>2.5% cashback on utility bills</li>
+          <li><span class="feat-icon">✓</span>1% fuel surcharge waiver</li>
+          <li><span class="feat-icon">✓</span>2 reward points per ₹100 on other spends</li>
+        </ul>
+        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+      </div>
+    </div>
+
+    <!-- Amex Platinum -->
+    <div class="card" data-type="travel rewards">
+      <div class="card-header" style="background:linear-gradient(135deg,#065f46,#10b981);">
+        <div class="card-img-placeholder">Amex</div>
+        <div>
+          <div class="card-title">Amex Platinum Travel Card</div>
+          <div class="card-bank">American Express</div>
+          <div class="card-badges">
+            <span class="badge badge-travel">✈️ Travel</span>
+            <span class="badge badge-rewards">🎁 Rewards</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="rating"><div class="stars">★★★★★</div><div class="rating-num">4.7</div><div class="rating-count">(2,654 reviews)</div></div>
+        <div class="card-fees">
+          <div class="fee-box"><div class="fee-label">Joining Fee</div><div class="fee-val">₹3,500</div></div>
+          <div class="fee-box"><div class="fee-label">Annual Fee</div><div class="fee-val">₹5,000</div></div>
+          <div class="fee-box"><div class="fee-label">Best For</div><div class="fee-val">Travel</div></div>
+        </div>
+        <ul class="card-features">
+          <li><span class="feat-icon">✓</span>Taj Hotels voucher worth ₹10,000/year</li>
+          <li><span class="feat-icon">✓</span>IndiGo flight voucher worth ₹10,000/year</li>
+          <li><span class="feat-icon">✓</span>Unlimited domestic airport lounge access</li>
+          <li><span class="feat-icon">✓</span>1 Membership Reward per ₹50 spent</li>
+        </ul>
+        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+      </div>
+    </div>
+
+    <!-- Kotak 811 -->
+    <div class="card" data-type="cashback rewards">
+      <div class="card-header" style="background:linear-gradient(135deg,#92400e,#f59e0b);">
+        <div class="card-img-placeholder">Kotak<br/>Bank</div>
+        <div>
+          <div class="card-title">Kotak 811 #DreamDifferent</div>
+          <div class="card-bank">Kotak Mahindra Bank</div>
+          <div class="card-badges">
+            <span class="badge badge-free">🆓 No Fee</span>
+            <span class="badge badge-cashback">💰 Cashback</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="rating"><div class="stars">★★★★☆</div><div class="rating-num">4.0</div><div class="rating-count">(1,234 reviews)</div></div>
+        <div class="card-fees">
+          <div class="fee-box"><div class="fee-label">Joining Fee</div><div class="fee-val free">FREE</div></div>
+          <div class="fee-box"><div class="fee-label">Annual Fee</div><div class="fee-val free">FREE</div></div>
+          <div class="fee-box"><div class="fee-label">Best For</div><div class="fee-val">Beginners</div></div>
+        </div>
+        <ul class="card-features">
+          <li><span class="feat-icon">✓</span>Zero joining & annual fee forever</li>
+          <li><span class="feat-icon">✓</span>2 reward points per ₹100 spent</li>
+          <li><span class="feat-icon">✓</span>1% fuel surcharge waiver</li>
+          <li><span class="feat-icon">✓</span>Perfect for first-time cardholders</li>
+        </ul>
+        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+      </div>
+    </div>
+
+    <!-- HDFC Regalia -->
+    <div class="card" data-type="travel rewards shopping">
+      <div class="card-header" style="background:linear-gradient(135deg,#1e1b4b,#4f46e5);">
+        <div class="card-img-placeholder">HDFC<br/>Bank</div>
+        <div>
+          <div class="card-title">HDFC Regalia Credit Card</div>
+          <div class="card-bank">HDFC Bank</div>
+          <div class="card-badges">
+            <span class="badge badge-travel">✈️ Travel</span>
+            <span class="badge badge-rewards">🎁 Rewards</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="rating"><div class="stars">★★★★★</div><div class="rating-num">4.8</div><div class="rating-count">(4,521 reviews)</div></div>
+        <div class="card-fees">
+          <div class="fee-box"><div class="fee-label">Joining Fee</div><div class="fee-val">₹2,500</div></div>
+          <div class="fee-box"><div class="fee-label">Annual Fee</div><div class="fee-val">₹2,500</div></div>
+          <div class="fee-box"><div class="fee-label">Best For</div><div class="fee-val">Premium</div></div>
+        </div>
+        <ul class="card-features">
+          <li><span class="feat-icon">✓</span>4 reward points per ₹150 spent</li>
+          <li><span class="feat-icon">✓</span>12 complimentary airport lounge visits/year</li>
+          <li><span class="feat-icon">✓</span>Priority Pass membership included</li>
+          <li><span class="feat-icon">✓</span>Golf privileges at premium courses</li>
+        </ul>
+        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+      </div>
+    </div>
+
+    <!-- Amazon Pay ICICI -->
+    <div class="card" data-type="cashback shopping">
+      <div class="card-header" style="background:linear-gradient(135deg,#7f1d1d,#dc2626);">
+        <div class="card-img-placeholder">Amazon<br/>Pay</div>
+        <div>
+          <div class="card-title">Amazon Pay ICICI Credit Card</div>
+          <div class="card-bank">ICICI Bank</div>
+          <div class="card-badges">
+            <span class="badge badge-cashback">💰 Cashback</span>
+            <span class="badge badge-free">🆓 No Fee</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="rating"><div class="stars">★★★★★</div><div class="rating-num">4.6</div><div class="rating-count">(5,832 reviews)</div></div>
+        <div class="card-fees">
+          <div class="fee-box"><div class="fee-label">Joining Fee</div><div class="fee-val free">FREE</div></div>
+          <div class="fee-box"><div class="fee-label">Annual Fee</div><div class="fee-val free">FREE</div></div>
+          <div class="fee-box"><div class="fee-label">Best For</div><div class="fee-val">Amazon</div></div>
+        </div>
+        <ul class="card-features">
+          <li><span class="feat-icon">✓</span>5% cashback on Amazon (Prime members)</li>
+          <li><span class="feat-icon">✓</span>2% cashback on Amazon Pay partner merchants</li>
+          <li><span class="feat-icon">✓</span>1% cashback on all other spends</li>
+          <li><span class="feat-icon">✓</span>No minimum spend or redemption required</li>
+        </ul>
+        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+      </div>
+    </div>
+
+    <!-- IndusInd Legend -->
+    <div class="card" data-type="travel rewards fuel">
+      <div class="card-header" style="background:linear-gradient(135deg,#134e4a,#0d9488);">
+        <div class="card-img-placeholder">IndusInd<br/>Bank</div>
+        <div>
+          <div class="card-title">IndusInd Bank Legend Card</div>
+          <div class="card-bank">IndusInd Bank</div>
+          <div class="card-badges">
+            <span class="badge badge-travel">✈️ Travel</span>
+            <span class="badge badge-fuel">⛽ Fuel</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="rating"><div class="stars">★★★★☆</div><div class="rating-num">4.2</div><div class="rating-count">(876 reviews)</div></div>
+        <div class="card-fees">
+          <div class="fee-box"><div class="fee-label">Joining Fee</div><div class="fee-val">₹9,999</div></div>
+          <div class="fee-box"><div class="fee-label">Annual Fee</div><div class="fee-val">₹9,999</div></div>
+          <div class="fee-box"><div class="fee-label">Best For</div><div class="fee-val">Luxury</div></div>
+        </div>
+        <ul class="card-features">
+          <li><span class="feat-icon">✓</span>Complimentary golf rounds (12/year)</li>
+          <li><span class="feat-icon">✓</span>International airport lounge access</li>
+          <li><span class="feat-icon">✓</span>2.5% fuel surcharge waiver</li>
+          <li><span class="feat-icon">✓</span>Concierge services 24/7</li>
+        </ul>
+        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="no-results" id="noResults">😕 No cards found for this category. Try a different filter!</div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="why">
+  <div class="why-inner">
+    <div class="section-title" style="text-align:center;">Why Trust CreditCardGyaan?</div>
+    <div class="section-sub" style="text-align:center;">Helping Indians make smarter financial decisions</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔍</div>
+        <div class="why-title">100% Unbiased Reviews</div>
+        <div class="why-desc">Our reviews are based on real data and user feedback — not paid promotions. We show you the full picture.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Instant Comparison</div>
+        <div class="why-desc">Compare fees, rewards and benefits of 50+ cards side by side in just a few seconds.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <div class="why-title">Secure & Safe</div>
+        <div class="why-desc">We never ask for your card details. Your privacy and security is always our top priority.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📱</div>
+        <div class="why-title">Mobile Friendly</div>
+        <div class="why-desc">Fully optimized for all devices. Compare cards anytime, anywhere on your phone or tablet.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🆕</div>
+        <div class="why-title">Always Updated</div>
+        <div class="why-desc">We regularly update card fees, offers and benefits so you always get the latest information.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <div class="why-title">Personalized Match</div>
+        <div class="why-desc">Filter by your spending habits — cashback, travel, fuel or shopping — to find your ideal card.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIT SCORE -->
+<section class="score-section" id="score">
+  <div class="score-inner">
+    <h2>🎯 Check Your Free Credit Score</h2>
+    <p>Know your CIBIL score instantly — it's completely free and won't affect your credit score!</p>
+    <div class="score-input">
+      <input type="tel" placeholder="Enter your mobile number" maxlength="10" id="mobileInput"/>
+      <button onclick="checkScore()">Check Free →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">CreditCard<span>Gyaan</span></div>
+        <div class="footer-desc">India's most trusted credit card comparison platform. We help millions of Indians find the right card for their lifestyle and spending habits.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Popular Cards</h4>
+        <ul>
+          <li><a href="#">HDFC Millennia</a></li>
+          <li><a href="#">HDFC Regalia</a></li>
+          <li><a href="#">SBI Card ELITE</a></li>
+          <li><a href="#">Amex Platinum</a></li>
+          <li><a href="#">Amazon Pay ICICI</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Cashback Cards</a></li>
+          <li><a href="#">Travel Cards</a></li>
+          <li><a href="#">Fuel Cards</a></li>
+          <li><a href="#">Shopping Cards</a></li>
+          <li><a href="#">No Fee Cards</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 CreditCardGyaan.in — All rights reserved</div>
+      <div>Made with ❤️ for India 🇮🇳</div>
+    </div>
+    <div class="disclaimer">
+      Disclaimer: CreditCardGyaan.in is an independent credit card comparison platform. We are not a bank or financial institution. We may earn a referral commission when you apply through our links at no extra cost to you. All card information is for educational purposes only. Fees, rewards and benefits are subject to change. Please read the terms & conditions of each card on the bank's official website before applying.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+
+  function filterCards(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    let visible = 0;
+    document.querySelectorAll('.card').forEach(card => {
+      const match = type === 'all' || card.dataset.type.includes(type);
+      card.style.display = match ? 'block' : 'none';
+      if (match) visible++;
+    });
+    document.getElementById('noResults').classList.toggle('show', visible === 0);
+  }
+
+  function checkScore() {
+    const val = document.getElementById('mobileInput').value;
+    if (val.length === 10 && /^\d+$/.test(val)) {
+      alert('✅ Thank you! We will send your free credit score to your mobile number shortly.');
+    } else {
+      alert('⚠️ Please enter a valid 10-digit mobile number.');
+    }
+  }
+</script>
+</body>
+</html>
