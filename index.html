@@ -674,6 +674,13 @@ Rules:
 - Example ending: APPLY_LINK: ICICI Amazon Pay|https://www.creditcardgyaan.in/#cards`;
 
   let history = [];
+  let audioCtx = null;
+  function unlockAudio() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+  }
+  document.addEventListener("click", unlockAudio);
+  document.addEventListener("touchstart", unlockAudio);
   let voiceOn = true;
   let isListening = false;
   let recognition = null;
@@ -814,20 +821,30 @@ Rules:
   }
 
   async function speakTTS(text){
+    if(!voiceOn) return;
     try {
+      unlockAudio();
       currentAudio?.pause();
       const res = await fetch('/api/tts', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({ text: text.slice(0,400) })
       });
+      if(!res.ok) return;
       const data = await res.json();
       if(data.audio){
-        const fmt = data.format === 'mp3' ? 'audio/mp3' : 'audio/wav';
-        currentAudio = new Audio(`data:${fmt};base64,${data.audio}`);
-        currentAudio.play();
+        const fmt = data.format === 'mp3' ? 'audio/mpeg' : 'audio/wav';
+        const byteChars = atob(data.audio);
+        const byteArr = new Uint8Array(byteChars.length);
+        for(let i=0;i<byteChars.length;i++) byteArr[i]=byteChars.charCodeAt(i);
+        const blob = new Blob([byteArr], {type: fmt});
+        const url = URL.createObjectURL(blob);
+        currentAudio = new Audio(url);
+        currentAudio.onended = () => URL.revokeObjectURL(url);
+        const playPromise = currentAudio.play();
+        if(playPromise) playPromise.catch(e => console.log('Audio play blocked:', e));
       }
-    } catch(e){}
+    } catch(e){ console.log('TTS error:', e); }
   }
 })();
 </script>
