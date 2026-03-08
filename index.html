@@ -830,21 +830,42 @@ Rules:
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({ text: text.slice(0,400) })
       });
-      if(!res.ok) return;
-      const data = await res.json();
-      if(data.audio){
-        const fmt = data.format === 'mp3' ? 'audio/mpeg' : 'audio/wav';
-        const byteChars = atob(data.audio);
-        const byteArr = new Uint8Array(byteChars.length);
-        for(let i=0;i<byteChars.length;i++) byteArr[i]=byteChars.charCodeAt(i);
-        const blob = new Blob([byteArr], {type: fmt});
-        const url = URL.createObjectURL(blob);
-        currentAudio = new Audio(url);
-        currentAudio.onended = () => URL.revokeObjectURL(url);
-        const playPromise = currentAudio.play();
-        if(playPromise) playPromise.catch(e => console.log('Audio play blocked:', e));
+      if(res.ok){
+        const data = await res.json();
+        if(data.audio){
+          const fmt = data.format === 'mp3' ? 'audio/mpeg' : 'audio/wav';
+          const byteChars = atob(data.audio);
+          const byteArr = new Uint8Array(byteChars.length);
+          for(let i=0;i<byteChars.length;i++) byteArr[i]=byteChars.charCodeAt(i);
+          const blob = new Blob([byteArr], {type: fmt});
+          const url = URL.createObjectURL(blob);
+          currentAudio = new Audio(url);
+          currentAudio.onended = () => URL.revokeObjectURL(url);
+          const playPromise = currentAudio.play();
+          if(playPromise) await playPromise.catch(() => browserTTS(text));
+          return;
+        }
       }
-    } catch(e){ console.log('TTS error:', e); }
+      // Fallback: Browser built-in Hindi TTS (always works, free!)
+      browserTTS(text);
+    } catch(e){ browserTTS(text); }
+  }
+
+  function browserTTS(text){
+    if(!voiceOn) return;
+    if(!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    // Try Hindi voice first, fallback to any available
+    const voices = window.speechSynthesis.getVoices();
+    const hindiVoice = voices.find(v => v.lang.includes('hi')) || 
+                       voices.find(v => v.lang.includes('en-IN')) ||
+                       voices[0];
+    if(hindiVoice) utter.voice = hindiVoice;
+    utter.lang = 'hi-IN';
+    utter.rate = 0.9;
+    utter.pitch = 1.0;
+    window.speechSynthesis.speak(utter);
   }
 })();
 </script>
