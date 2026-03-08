@@ -595,5 +595,424 @@
     }
   }
 </script>
+  <!-- ============================================
+     GYAAN MITRA - AI Voice Agent Widget v2
+     CreditCardGyaan.in
+     
+     HOW TO EMBED:
+     Paste this entire block just before </body> in your index.html
+     ============================================ -->
+
+<div id="gm-fab" onclick="toggleGM()" title="Ask Gyaan Mitra">
+  <span id="gm-fab-icon">🎓</span>
+  <span id="gm-fab-label">Ask AI</span>
+  <span id="gm-fab-close" style="display:none">✕</span>
+</div>
+
+<div id="gm-widget">
+  <div id="gm-header">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="position:relative">
+        <div id="gm-avatar">🎓</div>
+        <div id="gm-online-dot"></div>
+      </div>
+      <div>
+        <div id="gm-name">Gyaan Mitra</div>
+        <div id="gm-subtitle">AI Credit Card Expert</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:6px;align-items:center">
+      <div id="gm-powered">
+        <span class="gm-badge gold">Claude AI</span>
+        <span style="color:rgba(255,255,255,0.3);font-size:10px">+</span>
+        <span class="gm-badge purple">Sarvam AI</span>
+      </div>
+      <button class="gm-icon-btn" onclick="toggleSettings()">⚙️</button>
+      <button class="gm-icon-btn" onclick="toggleGM()">✕</button>
+    </div>
+  </div>
+
+  <div id="gm-settings" style="display:none">
+    <div class="gm-settings-label">🔊 Sarvam AI Key (Voice Replies)</div>
+    <input type="password" id="gm-sarvam-key" placeholder="Enter Sarvam API key..." oninput="saveSarvamKey()" />
+    <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+      <div id="gm-voice-toggle" onclick="toggleVoice()" class="gm-toggle active"></div>
+      <span class="gm-settings-label" style="margin:0">Voice replies (Hindi)</span>
+    </div>
+  </div>
+
+  <div id="gm-messages"></div>
+
+  <div id="gm-chips">
+    <button class="gm-chip" onclick="sendQuick('Best travel card?')">✈️ Travel card?</button>
+    <button class="gm-chip" onclick="sendQuick('Lifetime free card?')">🆓 Free card?</button>
+    <button class="gm-chip" onclick="sendQuick('Best cashback card?')">💰 Cashback?</button>
+    <button class="gm-chip" onclick="sendQuick('Mera monthly spend ₹20,000 hai, kaunsa card best hai?')">💳 My best card?</button>
+  </div>
+
+  <div id="gm-listening" style="display:none">
+    <div class="gm-pulse-wrap">
+      <div class="gm-pulse-ring r1"></div>
+      <div class="gm-pulse-ring r2"></div>
+      <div class="gm-pulse-ring r3"></div>
+      <div class="gm-pulse-dot"></div>
+    </div>
+    <span>Bol dijiye... I'm listening 🎙️</span>
+  </div>
+
+  <div id="gm-input-row">
+    <input type="text" id="gm-input" placeholder="Credit card ke baare mein poochein..." onkeydown="handleKey(event)" oninput="updateSendBtn()" />
+    <button id="gm-mic-btn" onclick="toggleMic()" title="Voice input">🎙️</button>
+    <button id="gm-send-btn" onclick="sendMessage()" title="Send">➤</button>
+  </div>
+
+  <div id="gm-footer">CreditCardGyaan.in • Hindi & English • Powered by AI</div>
+</div>
+
+<style>
+#gm-fab {
+  position:fixed; bottom:24px; right:24px; z-index:99998;
+  background:linear-gradient(135deg,#d4af37,#c9a227);
+  color:#0a0a0f; border-radius:50px; padding:12px 18px 12px 14px;
+  display:flex; align-items:center; gap:8px; cursor:pointer;
+  font-family:Georgia,serif; font-size:14px; font-weight:bold;
+  box-shadow:0 8px 25px rgba(212,175,55,0.45),0 2px 8px rgba(0,0,0,0.3);
+  transition:all 0.3s; user-select:none;
+}
+#gm-fab:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(212,175,55,0.55); }
+#gm-fab-icon { font-size:18px; }
+
+#gm-widget {
+  position:fixed; bottom:88px; right:24px; z-index:99999;
+  width:370px; background:linear-gradient(160deg,#16161f,#1e1e2e);
+  border-radius:20px; border:1px solid rgba(212,175,55,0.25);
+  box-shadow:0 25px 60px rgba(0,0,0,0.7),inset 0 1px 0 rgba(255,255,255,0.05);
+  font-family:Georgia,serif; overflow:hidden;
+  display:none; flex-direction:column; max-height:600px;
+  animation:gmSlideUp 0.3s ease;
+}
+@keyframes gmSlideUp {
+  from { opacity:0; transform:translateY(20px) scale(0.97); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+
+#gm-header {
+  background:linear-gradient(135deg,#1a1a28,#24243a);
+  padding:14px 16px; border-bottom:1px solid rgba(212,175,55,0.2);
+  display:flex; align-items:center; justify-content:space-between;
+}
+#gm-avatar {
+  width:40px; height:40px; border-radius:50%;
+  background:linear-gradient(135deg,#d4af37,#f5d97e,#c9a227);
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px; box-shadow:0 0 16px rgba(212,175,55,0.4);
+}
+#gm-online-dot {
+  position:absolute; bottom:0; right:0;
+  width:11px; height:11px; border-radius:50%;
+  background:#22c55e; border:2px solid #1a1a28;
+}
+#gm-name { color:#d4af37; font-size:15px; font-weight:bold; }
+#gm-subtitle { color:rgba(212,175,55,0.55); font-size:10px; letter-spacing:1px; text-transform:uppercase; }
+#gm-powered { display:flex; align-items:center; gap:4px; }
+.gm-badge { font-size:9px; border-radius:4px; padding:1px 5px; font-family:Arial,sans-serif; }
+.gm-badge.gold { color:#d4af37; background:rgba(212,175,55,0.12); border:1px solid rgba(212,175,55,0.25); }
+.gm-badge.purple { color:#a78bfa; background:rgba(167,139,250,0.1); border:1px solid rgba(167,139,250,0.25); }
+.gm-icon-btn {
+  background:rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.2);
+  border-radius:7px; color:#d4af37; font-size:13px;
+  width:28px; height:28px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+
+#gm-settings {
+  background:rgba(10,10,20,0.95);
+  border-bottom:1px solid rgba(212,175,55,0.12);
+  padding:12px 16px;
+}
+.gm-settings-label { color:rgba(212,175,55,0.6); font-size:11px; font-family:Arial,sans-serif; margin-bottom:6px; display:block; }
+#gm-sarvam-key {
+  width:100%; background:rgba(255,255,255,0.05);
+  border:1px solid rgba(212,175,55,0.2); border-radius:8px;
+  color:#fff; font-size:12px; padding:7px 10px;
+  outline:none; box-sizing:border-box; font-family:Arial,sans-serif;
+}
+.gm-toggle {
+  width:34px; height:18px; border-radius:9px;
+  background:rgba(255,255,255,0.1); position:relative; cursor:pointer; transition:all 0.2s; flex-shrink:0;
+}
+.gm-toggle::after {
+  content:''; position:absolute; top:2px; left:2px;
+  width:14px; height:14px; border-radius:50%; background:white; transition:all 0.2s;
+}
+.gm-toggle.active { background:#d4af37; }
+.gm-toggle.active::after { left:18px; }
+
+#gm-messages {
+  flex:1; overflow-y:auto; padding:14px;
+  display:flex; flex-direction:column; gap:10px;
+  min-height:200px; max-height:300px;
+  scrollbar-width:thin; scrollbar-color:rgba(212,175,55,0.2) transparent;
+}
+.gm-msg-row { display:flex; align-items:flex-end; gap:7px; animation:gmFadeIn 0.25s ease; }
+.gm-msg-row.user { flex-direction:row-reverse; }
+@keyframes gmFadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+.gm-msg-avatar {
+  width:26px; height:26px; border-radius:50%;
+  background:linear-gradient(135deg,#d4af37,#f5d97e);
+  display:flex; align-items:center; justify-content:center;
+  font-size:12px; flex-shrink:0;
+}
+.gm-bubble { max-width:78%; padding:9px 13px; font-size:13px; line-height:1.5; }
+.gm-bubble.bot {
+  background:rgba(255,255,255,0.06); border:1px solid rgba(212,175,55,0.12);
+  border-radius:16px 16px 16px 3px; color:rgba(255,255,255,0.88);
+}
+.gm-bubble.user {
+  background:linear-gradient(135deg,#d4af37,#c9a227);
+  border-radius:16px 16px 3px 16px; color:#0a0a0f; font-weight:500;
+}
+.gm-time { font-size:9px; color:rgba(255,255,255,0.2); margin-top:3px; font-family:Arial,sans-serif; }
+.gm-time.user { text-align:right; padding-right:3px; }
+.gm-time.bot { padding-left:3px; }
+.gm-typing { display:flex; gap:4px; align-items:center; padding:4px 2px; }
+.gm-dot { width:6px; height:6px; border-radius:50%; background:#d4af37; animation:gmBounce 1.2s ease-in-out infinite; }
+.gm-dot:nth-child(2){animation-delay:0.2s} .gm-dot:nth-child(3){animation-delay:0.4s}
+@keyframes gmBounce { 0%,100%{transform:translateY(0);opacity:0.5} 50%{transform:translateY(-5px);opacity:1} }
+
+#gm-chips { padding:0 14px 8px; display:flex; gap:5px; flex-wrap:wrap; }
+.gm-chip {
+  background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.2);
+  border-radius:20px; color:rgba(212,175,55,0.8);
+  font-size:10px; padding:4px 9px; cursor:pointer;
+  font-family:Arial,sans-serif; transition:all 0.2s;
+}
+.gm-chip:hover { background:rgba(212,175,55,0.15); }
+
+#gm-listening {
+  padding:8px 16px; display:flex; align-items:center;
+  justify-content:center; gap:12px;
+  color:#d4af37; font-size:12px; font-family:Arial,sans-serif;
+}
+.gm-pulse-wrap { position:relative; width:28px; height:28px; display:flex; align-items:center; justify-content:center; }
+.gm-pulse-ring { position:absolute; border-radius:50%; border:1.5px solid rgba(212,175,55,0.5); animation:gmPulse 1.5s ease-out infinite; }
+.r1{width:10px;height:10px;animation-delay:0s} .r2{width:18px;height:18px;animation-delay:0.3s} .r3{width:26px;height:26px;animation-delay:0.6s}
+.gm-pulse-dot { width:8px; height:8px; border-radius:50%; background:#d4af37; }
+@keyframes gmPulse { 0%{transform:scale(0.5);opacity:1} 100%{transform:scale(1.8);opacity:0} }
+
+#gm-input-row {
+  padding:10px 14px 12px; border-top:1px solid rgba(212,175,55,0.1);
+  display:flex; gap:6px; align-items:center;
+}
+#gm-input {
+  flex:1; background:rgba(255,255,255,0.05);
+  border:1px solid rgba(212,175,55,0.2); border-radius:10px;
+  color:#fff; font-size:12.5px; padding:9px 12px;
+  outline:none; font-family:Georgia,serif; transition:border-color 0.2s;
+}
+#gm-input:focus { border-color:rgba(212,175,55,0.45); }
+#gm-input::placeholder { color:rgba(255,255,255,0.2); }
+#gm-mic-btn, #gm-send-btn {
+  width:38px; height:38px; border-radius:10px; font-size:16px;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; transition:all 0.2s; border:none;
+}
+#gm-mic-btn { background:rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.25); color:#d4af37; }
+#gm-mic-btn.active { background:linear-gradient(135deg,#ef4444,#dc2626); color:white; }
+#gm-send-btn { background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.2); }
+#gm-send-btn.ready { background:linear-gradient(135deg,#d4af37,#c9a227); color:#0a0a0f; box-shadow:0 4px 14px rgba(212,175,55,0.3); }
+
+#gm-footer {
+  text-align:center; padding:6px 16px 10px;
+  color:rgba(255,255,255,0.18); font-size:9.5px;
+  font-family:Arial,sans-serif; border-top:1px solid rgba(255,255,255,0.04);
+}
+
+@media(max-width:430px) {
+  #gm-widget { width:calc(100vw - 20px); right:10px; bottom:76px; }
+  #gm-fab { right:16px; bottom:16px; }
+}
+</style>
+
+<script>
+(function(){
+  const SYSTEM = `You are Gyaan Mitra, an expert AI credit card advisor for CreditCardGyaan.in — India's most trusted credit card comparison platform.
+
+You help Indian users find the best credit card. You know about:
+- HDFC Regalia Gold (travel, lounge access, ₹2,500/yr fee)
+- HDFC MoneyBack+ (cashback, groceries, ₹500/yr fee)
+- SBI SimplyCLICK (online shopping, ₹499/yr fee)
+- Axis Flipkart Credit Card (5% on Flipkart, free 1st year)
+- ICICI Amazon Pay (5% on Amazon, lifetime free)
+- Axis ACE (5% on GPay/Swiggy/Zomato, ₹499/yr fee)
+- Tata Neu Infinity HDFC (Tata ecosystem, ₹1,499/yr fee)
+- IDFC FIRST Classic (lifetime free, no forex markup)
+- AU Small Finance Lit Card (customizable lifestyle card)
+
+Always reply in same language as user (Hindi, Hinglish, or English).
+Keep answers short — 2-4 sentences. Always end by suggesting to apply via CreditCardGyaan.in.`;
+
+  let history = [];
+  let voiceOn = true;
+  let isListening = false;
+  let recognition = null;
+  let currentAudio = null;
+  let sarvamKey = '';
+
+  window.addEventListener('load', function(){
+    const greeting = 'Namaste! 🙏 Main Gyaan Mitra hoon — aapka AI credit card advisor. Bataiye, aapko kaunse type ka card chahiye? Travel, cashback, ya shopping?';
+    addMsg('bot', greeting);
+    history = [{ role:'assistant', content: greeting }];
+  });
+
+  window.toggleGM = function(){
+    const w = document.getElementById('gm-widget');
+    const open = w.style.display === 'flex';
+    w.style.display = open ? 'none' : 'flex';
+    w.style.flexDirection = 'column';
+    document.getElementById('gm-fab-icon').style.display = open ? '' : 'none';
+    document.getElementById('gm-fab-label').style.display = open ? '' : 'none';
+    document.getElementById('gm-fab-close').style.display = open ? 'none' : '';
+  }
+
+  window.toggleSettings = function(){
+    const s = document.getElementById('gm-settings');
+    s.style.display = s.style.display === 'none' ? 'block' : 'none';
+  }
+
+  window.saveSarvamKey = function(){
+    sarvamKey = document.getElementById('gm-sarvam-key').value;
+  }
+
+  window.toggleVoice = function(){
+    voiceOn = !voiceOn;
+    const t = document.getElementById('gm-voice-toggle');
+    voiceOn ? t.classList.add('active') : t.classList.remove('active');
+  }
+
+  window.sendQuick = function(text){
+    document.getElementById('gm-input').value = text;
+    updateSendBtn();
+    sendMessage();
+  }
+
+  window.handleKey = function(e){
+    if(e.key === 'Enter') sendMessage();
+  }
+
+  window.updateSendBtn = function(){
+    const btn = document.getElementById('gm-send-btn');
+    document.getElementById('gm-input').value.trim()
+      ? btn.classList.add('ready')
+      : btn.classList.remove('ready');
+  }
+
+  window.sendMessage = async function(){
+    const inp = document.getElementById('gm-input');
+    const text = inp.value.trim();
+    if(!text) return;
+    inp.value = '';
+    updateSendBtn();
+
+    addMsg('user', text);
+    history.push({ role:'user', content: text });
+    showTyping();
+
+    try {
+      // ✅ Calls your secure /api/chat proxy — API key stays hidden on server
+      const res = await fetch('/api/chat', {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json' },
+        body: JSON.stringify({ messages: history, system: SYSTEM })
+      });
+      const data = await res.json();
+      const reply = data.content?.[0]?.text || 'Sorry, ek baar phir try karein.';
+      hideTyping();
+      addMsg('bot', reply);
+      history.push({ role:'assistant', content: reply });
+      if(voiceOn && sarvamKey) speakSarvam(reply);
+    } catch(e){
+      hideTyping();
+      addMsg('bot', 'Network error. Please try again.');
+    }
+  }
+
+  function addMsg(type, text){
+    const box = document.getElementById('gm-messages');
+    const time = new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    const row = document.createElement('div');
+    row.className = 'gm-msg-row ' + (type==='user' ? 'user' : '');
+    row.innerHTML = type==='bot'
+      ? `<div class="gm-msg-avatar">🎓</div><div><div class="gm-bubble bot">${text}</div><div class="gm-time bot">${time}</div></div>`
+      : `<div><div class="gm-bubble user">${text}</div><div class="gm-time user">${time}</div></div>`;
+    box.appendChild(row);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function showTyping(){
+    const box = document.getElementById('gm-messages');
+    const t = document.createElement('div');
+    t.className = 'gm-msg-row'; t.id = 'gm-typing-row';
+    t.innerHTML = `<div class="gm-msg-avatar">🎓</div><div class="gm-bubble bot"><div class="gm-typing"><div class="gm-dot"></div><div class="gm-dot"></div><div class="gm-dot"></div></div></div>`;
+    box.appendChild(t);
+    box.scrollTop = box.scrollHeight;
+  }
+  function hideTyping(){ document.getElementById('gm-typing-row')?.remove(); }
+
+  window.toggleMic = function(){
+    if(isListening){ stopMic(); return; }
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(!SR){ alert('Voice not supported. Please use Chrome.'); return; }
+    recognition = new SR();
+    recognition.lang = 'hi-IN';
+    recognition.interimResults = false;
+    recognition.onstart = ()=>{
+      isListening = true;
+      document.getElementById('gm-mic-btn').classList.add('active');
+      document.getElementById('gm-mic-btn').textContent = '⏹';
+      document.getElementById('gm-listening').style.display = 'flex';
+    };
+    recognition.onresult = (e)=>{
+      document.getElementById('gm-input').value = e.results[0][0].transcript;
+      updateSendBtn(); stopMic(); sendMessage();
+    };
+    recognition.onerror = stopMic;
+    recognition.onend = stopMic;
+    recognition.start();
+  }
+
+  function stopMic(){
+    isListening = false; recognition?.stop();
+    document.getElementById('gm-mic-btn').classList.remove('active');
+    document.getElementById('gm-mic-btn').textContent = '🎙️';
+    document.getElementById('gm-listening').style.display = 'none';
+  }
+
+  async function speakSarvam(text){
+    if(!sarvamKey) return;
+    try {
+      currentAudio?.pause();
+      const res = await fetch('https://api.sarvam.ai/text-to-speech', {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json', 'api-subscription-key': sarvamKey },
+        body: JSON.stringify({
+          inputs:[text.slice(0,500)],
+          target_language_code:'hi-IN',
+          speaker:'meera',
+          pitch:0, pace:1.0, loudness:1.5,
+          speech_sample_rate:22050,
+          enable_preprocessing:true,
+          model:'bulbul:v1'
+        })
+      });
+      const data = await res.json();
+      if(data.audios?.[0]){
+        currentAudio = new Audio('data:audio/wav;base64,' + data.audios[0]);
+        currentAudio.play();
+      }
+    } catch(e){}
+  }
+})();
+</script>
 </body>
 </html>
