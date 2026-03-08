@@ -9,8 +9,6 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     body{font-family:'Poppins',sans-serif;background:#F7F8FA;color:#2C2C2C;}
-
-    /* NAV */
     nav{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.08);position:sticky;top:0;z-index:100;}
     .nav-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:65px;}
     .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
@@ -27,8 +25,6 @@
     .mobile-menu{display:none;background:#fff;border-top:1px solid #eee;padding:16px 20px;}
     .mobile-menu.open{display:block;}
     .mobile-menu a{display:block;padding:10px 0;color:#555;text-decoration:none;font-size:15px;border-bottom:1px solid #f5f5f5;}
-
-    /* HERO */
     .hero{background:linear-gradient(135deg,#1A3C6E 0%,#2563EB 100%);color:#fff;padding:70px 20px 80px;}
     .hero-inner{max-width:1200px;margin:0 auto;text-align:center;}
     .hero-badge{display:inline-block;background:rgba(245,166,35,0.2);border:1px solid #F5A623;color:#F5A623;padding:5px 16px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:20px;letter-spacing:1px;}
@@ -42,8 +38,6 @@
     .stat{text-align:center;}
     .stat-num{font-size:32px;font-weight:800;color:#F5A623;}
     .stat-label{font-size:13px;opacity:0.8;margin-top:2px;}
-
-    /* CARDS */
     .section{max-width:1200px;margin:0 auto;padding:60px 20px;}
     .section-title{font-size:28px;font-weight:700;color:#1A3C6E;margin-bottom:6px;}
     .section-sub{color:#666;font-size:15px;margin-bottom:36px;}
@@ -78,8 +72,6 @@
     .feat-icon{color:#22c55e;font-size:14px;flex-shrink:0;margin-top:1px;font-weight:700;}
     .apply-btn{display:block;width:100%;padding:13px;background:linear-gradient(135deg,#1A3C6E,#2563EB);color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;transition:all .2s;letter-spacing:.3px;}
     .apply-btn:hover{background:linear-gradient(135deg,#F5A623,#f97316);transform:scale(1.01);}
-
-    /* WHY US */
     .why-section{background:#fff;padding:60px 20px;}
     .why-inner{max-width:1200px;margin:0 auto;text-align:center;}
     .why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px;margin-top:36px;text-align:left;}
@@ -88,8 +80,6 @@
     .why-icon{font-size:34px;margin-bottom:12px;}
     .why-title{font-size:16px;font-weight:700;color:#1A3C6E;margin-bottom:8px;}
     .why-desc{font-size:13px;color:#666;line-height:1.65;}
-
-    /* CREDIT SCORE */
     .score-section{background:linear-gradient(135deg,#1A3C6E,#2563EB);padding:65px 20px;color:#fff;text-align:center;}
     .score-inner{max-width:580px;margin:0 auto;}
     .score-inner h2{font-size:30px;font-weight:800;margin-bottom:10px;}
@@ -98,8 +88,6 @@
     .score-input input{padding:13px 20px;border-radius:10px;border:none;font-family:'Poppins',sans-serif;font-size:15px;width:250px;outline:none;color:#333;}
     .score-input button{padding:13px 26px;background:#F5A623;color:#fff;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s;}
     .score-input button:hover{background:#e59400;}
-
-    /* FOOTER */
     footer{background:#0f2449;color:#fff;padding:55px 20px 30px;}
     .footer-inner{max-width:1200px;margin:0 auto;}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:44px;}
@@ -113,33 +101,15 @@
     .footer-col ul li a:hover{color:#F5A623;}
     .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;opacity:0.6;flex-wrap:wrap;gap:10px;}
     .disclaimer{margin-top:18px;font-size:11px;opacity:0.45;line-height:1.7;}
-
-    /* NO RESULTS */
     .no-results{text-align:center;padding:60px 20px;color:#888;font-size:16px;display:none;}
     .no-results.show{display:block;}
-
-    @media(max-width:900px){
-      .footer-grid{grid-template-columns:1fr 1fr;}
-    }
-    @media(max-width:768px){
-      .hero h1{font-size:28px;}
-      .nav-links{display:none;}
-      .hamburger{display:flex;}
-      .hero-stats{gap:20px;}
-      .stat-num{font-size:26px;}
-      .cards-grid{grid-template-columns:1fr;}
-      .footer-grid{grid-template-columns:1fr 1fr;}
-    }
-    @media(max-width:480px){
-      .hero{padding:50px 16px 60px;}
-      .filter-btn{padding:8px 14px;font-size:13px;}
-      .footer-grid{grid-template-columns:1fr;}
-    }
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){.hero h1{font-size:28px;}.nav-links{display:none;}.hamburger{display:flex;}.hero-stats{gap:20px;}.stat-num{font-size:26px;}.cards-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:480px){.hero{padding:50px 16px 60px;}.filter-btn{padding:8px 14px;font-size:13px;}.footer-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <div class="nav-inner">
     <a href="/" class="logo">
@@ -164,7 +134,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-badge">🇮🇳 INDIA'S TRUSTED CREDIT CARD COMPARISON SITE</div>
@@ -187,13 +156,11 @@
   </div>
 </section>
 
-<!-- CREDIT CARDS -->
 <section class="section" id="cards">
   <div class="section-title">🏆 Best Credit Cards in India 2026</div>
   <div class="section-sub">Showing top-rated cards based on rewards, fees & real user reviews</div>
   <div class="cards-grid" id="cardsGrid">
 
-    <!-- HDFC Millennia -->
     <div class="card" data-type="cashback shopping">
       <div class="card-header" style="background:linear-gradient(135deg,#1A3C6E,#2563EB);">
         <div class="card-img-placeholder">HDFC<br/>Bank</div>
@@ -223,7 +190,6 @@
       </div>
     </div>
 
-    <!-- Flipkart Axis -->
     <div class="card" data-type="shopping cashback">
       <div class="card-header" style="background:linear-gradient(135deg,#b91c1c,#ef4444);">
         <div class="card-img-placeholder">Axis<br/>Bank</div>
@@ -249,11 +215,10 @@
           <li><span class="feat-icon">✓</span>1.5% cashback on all other spends</li>
           <li><span class="feat-icon">✓</span>Welcome vouchers worth ₹500</li>
         </ul>
-        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+        <a href="https://www.creditcardgyaan.in/#cards" target="_blank" class="apply-btn">Apply Now →</a>
       </div>
     </div>
 
-    <!-- SBI Elite -->
     <div class="card" data-type="travel rewards">
       <div class="card-header" style="background:linear-gradient(135deg,#1e3a5f,#0ea5e9);">
         <div class="card-img-placeholder">SBI<br/>Card</div>
@@ -279,11 +244,10 @@
           <li><span class="feat-icon">✓</span>Welcome e-voucher worth ₹5,000</li>
           <li><span class="feat-icon">✓</span>Free movie tickets (2 per month)</li>
         </ul>
-        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+        <a href="https://www.creditcardgyaan.in/#cards" target="_blank" class="apply-btn">Apply Now →</a>
       </div>
     </div>
 
-    <!-- ICICI HPCL -->
     <div class="card" data-type="fuel cashback">
       <div class="card-header" style="background:linear-gradient(135deg,#7c3aed,#a855f7);">
         <div class="card-img-placeholder">ICICI<br/>Bank</div>
@@ -309,11 +273,10 @@
           <li><span class="feat-icon">✓</span>1% fuel surcharge waiver</li>
           <li><span class="feat-icon">✓</span>2 reward points per ₹100 on other spends</li>
         </ul>
-        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+        <a href="https://www.creditcardgyaan.in/#cards" target="_blank" class="apply-btn">Apply Now →</a>
       </div>
     </div>
 
-    <!-- Amex Platinum -->
     <div class="card" data-type="travel rewards">
       <div class="card-header" style="background:linear-gradient(135deg,#065f46,#10b981);">
         <div class="card-img-placeholder">Amex</div>
@@ -339,11 +302,10 @@
           <li><span class="feat-icon">✓</span>Unlimited domestic airport lounge access</li>
           <li><span class="feat-icon">✓</span>1 Membership Reward per ₹50 spent</li>
         </ul>
-        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+        <a href="https://www.creditcardgyaan.in/#cards" target="_blank" class="apply-btn">Apply Now →</a>
       </div>
     </div>
 
-    <!-- Kotak 811 -->
     <div class="card" data-type="cashback rewards">
       <div class="card-header" style="background:linear-gradient(135deg,#92400e,#f59e0b);">
         <div class="card-img-placeholder">Kotak<br/>Bank</div>
@@ -369,11 +331,10 @@
           <li><span class="feat-icon">✓</span>1% fuel surcharge waiver</li>
           <li><span class="feat-icon">✓</span>Perfect for first-time cardholders</li>
         </ul>
-        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+        <a href="https://www.creditcardgyaan.in/#cards" target="_blank" class="apply-btn">Apply Now →</a>
       </div>
     </div>
 
-    <!-- HDFC Regalia -->
     <div class="card" data-type="travel rewards shopping">
       <div class="card-header" style="background:linear-gradient(135deg,#1e1b4b,#4f46e5);">
         <div class="card-img-placeholder">HDFC<br/>Bank</div>
@@ -399,11 +360,10 @@
           <li><span class="feat-icon">✓</span>Priority Pass membership included</li>
           <li><span class="feat-icon">✓</span>Golf privileges at premium courses</li>
         </ul>
-        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+        <a href="https://www.creditcardgyaan.in/#cards" target="_blank" class="apply-btn">Apply Now →</a>
       </div>
     </div>
 
-    <!-- Amazon Pay ICICI -->
     <div class="card" data-type="cashback shopping">
       <div class="card-header" style="background:linear-gradient(135deg,#7f1d1d,#dc2626);">
         <div class="card-img-placeholder">Amazon<br/>Pay</div>
@@ -429,11 +389,10 @@
           <li><span class="feat-icon">✓</span>1% cashback on all other spends</li>
           <li><span class="feat-icon">✓</span>No minimum spend or redemption required</li>
         </ul>
-        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+        <a href="https://www.creditcardgyaan.in/#cards" target="_blank" class="apply-btn">Apply Now →</a>
       </div>
     </div>
 
-    <!-- IndusInd Legend -->
     <div class="card" data-type="travel rewards fuel">
       <div class="card-header" style="background:linear-gradient(135deg,#134e4a,#0d9488);">
         <div class="card-img-placeholder">IndusInd<br/>Bank</div>
@@ -459,7 +418,7 @@
           <li><span class="feat-icon">✓</span>2.5% fuel surcharge waiver</li>
           <li><span class="feat-icon">✓</span>Concierge services 24/7</li>
         </ul>
-        <a href="#" target="_blank" class="apply-btn">Apply Now →</a>
+        <a href="https://www.creditcardgyaan.in/#cards" target="_blank" class="apply-btn">Apply Now →</a>
       </div>
     </div>
 
@@ -467,51 +426,25 @@
   <div class="no-results" id="noResults">😕 No cards found for this category. Try a different filter!</div>
 </section>
 
-<!-- WHY US -->
 <section class="why-section" id="why">
   <div class="why-inner">
     <div class="section-title" style="text-align:center;">Why Trust CreditCardGyaan?</div>
     <div class="section-sub" style="text-align:center;">Helping Indians make smarter financial decisions</div>
     <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">🔍</div>
-        <div class="why-title">100% Unbiased Reviews</div>
-        <div class="why-desc">Our reviews are based on real data and user feedback — not paid promotions. We show you the full picture.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">⚡</div>
-        <div class="why-title">Instant Comparison</div>
-        <div class="why-desc">Compare fees, rewards and benefits of 50+ cards side by side in just a few seconds.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🛡️</div>
-        <div class="why-title">Secure & Safe</div>
-        <div class="why-desc">We never ask for your card details. Your privacy and security is always our top priority.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">📱</div>
-        <div class="why-title">Mobile Friendly</div>
-        <div class="why-desc">Fully optimized for all devices. Compare cards anytime, anywhere on your phone or tablet.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🆕</div>
-        <div class="why-title">Always Updated</div>
-        <div class="why-desc">We regularly update card fees, offers and benefits so you always get the latest information.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🎯</div>
-        <div class="why-title">Personalized Match</div>
-        <div class="why-desc">Filter by your spending habits — cashback, travel, fuel or shopping — to find your ideal card.</div>
-      </div>
+      <div class="why-card"><div class="why-icon">🔍</div><div class="why-title">100% Unbiased Reviews</div><div class="why-desc">Our reviews are based on real data and user feedback — not paid promotions.</div></div>
+      <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Instant Comparison</div><div class="why-desc">Compare fees, rewards and benefits of 50+ cards side by side in seconds.</div></div>
+      <div class="why-card"><div class="why-icon">🛡️</div><div class="why-title">Secure & Safe</div><div class="why-desc">We never ask for your card details. Your privacy is always our top priority.</div></div>
+      <div class="why-card"><div class="why-icon">📱</div><div class="why-title">Mobile Friendly</div><div class="why-desc">Fully optimized for all devices. Compare cards anytime, anywhere.</div></div>
+      <div class="why-card"><div class="why-icon">🆕</div><div class="why-title">Always Updated</div><div class="why-desc">We regularly update card fees, offers and benefits so you get latest info.</div></div>
+      <div class="why-card"><div class="why-icon">🎯</div><div class="why-title">Personalized Match</div><div class="why-desc">Filter by your spending habits to find your ideal card.</div></div>
     </div>
   </div>
 </section>
 
-<!-- CREDIT SCORE -->
 <section class="score-section" id="score">
   <div class="score-inner">
     <h2>🎯 Check Your Free Credit Score</h2>
-    <p>Know your CIBIL score instantly — it's completely free and won't affect your credit score!</p>
+    <p>Know your CIBIL score instantly — completely free!</p>
     <div class="score-input">
       <input type="tel" placeholder="Enter your mobile number" maxlength="10" id="mobileInput"/>
       <button onclick="checkScore()">Check Free →</button>
@@ -519,13 +452,12 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
         <div class="footer-logo">CreditCard<span>Gyaan</span></div>
-        <div class="footer-desc">India's most trusted credit card comparison platform. We help millions of Indians find the right card for their lifestyle and spending habits.</div>
+        <div class="footer-desc">India's most trusted credit card comparison platform.</div>
       </div>
       <div class="footer-col">
         <h4>Popular Cards</h4>
@@ -562,18 +494,14 @@
       <div>© 2026 CreditCardGyaan.in — All rights reserved</div>
       <div>Made with ❤️ for India 🇮🇳</div>
     </div>
-    <div class="disclaimer">
-      Disclaimer: CreditCardGyaan.in is an independent credit card comparison platform. We are not a bank or financial institution. We may earn a referral commission when you apply through our links at no extra cost to you. All card information is for educational purposes only. Fees, rewards and benefits are subject to change. Please read the terms & conditions of each card on the bank's official website before applying.
-    </div>
+    <div class="disclaimer">Disclaimer: CreditCardGyaan.in is an independent credit card comparison platform. We may earn a referral commission when you apply through our links at no extra cost to you.</div>
   </div>
 </footer>
 
 <script>
   function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('open');
   }
-
   function filterCards(type, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -585,24 +513,17 @@
     });
     document.getElementById('noResults').classList.toggle('show', visible === 0);
   }
-
   function checkScore() {
     const val = document.getElementById('mobileInput').value;
     if (val.length === 10 && /^\d+$/.test(val)) {
-      alert('✅ Thank you! We will send your free credit score to your mobile number shortly.');
+      alert('✅ Thank you! We will send your free credit score shortly.');
     } else {
       alert('⚠️ Please enter a valid 10-digit mobile number.');
     }
   }
 </script>
-  <!-- ============================================
-     GYAAN MITRA - AI Voice Agent Widget v2
-     CreditCardGyaan.in
-     
-     HOW TO EMBED:
-     Paste this entire block just before </body> in your index.html
-     ============================================ -->
 
+<!-- GYAAN MITRA AI VOICE AGENT -->
 <div id="gm-fab" onclick="toggleGM()" title="Ask Gyaan Mitra">
   <span id="gm-fab-icon">🎓</span>
   <span id="gm-fab-label">Ask AI</span>
@@ -623,7 +544,7 @@
     </div>
     <div style="display:flex;gap:6px;align-items:center">
       <div id="gm-powered">
-        <span class="gm-badge gold">Claude AI</span>
+        <span class="gm-badge gold">Groq AI</span>
         <span style="color:rgba(255,255,255,0.3);font-size:10px">+</span>
         <span class="gm-badge purple">Sarvam AI</span>
       </div>
@@ -633,21 +554,20 @@
   </div>
 
   <div id="gm-settings" style="display:none">
-    <div class="gm-settings-label">🔊 Sarvam AI Key (Voice Replies)</div>
-    <input type="password" id="gm-sarvam-key" placeholder="Enter Sarvam API key..." oninput="saveSarvamKey()" />
-    <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+    <div class="gm-settings-label">🔊 Voice Replies</div>
+    <div style="display:flex;align-items:center;gap:8px;margin-top:4px">
       <div id="gm-voice-toggle" onclick="toggleVoice()" class="gm-toggle active"></div>
-      <span class="gm-settings-label" style="margin:0">Voice replies (Hindi)</span>
+      <span class="gm-settings-label" style="margin:0">Enable Hindi voice</span>
     </div>
   </div>
 
   <div id="gm-messages"></div>
 
   <div id="gm-chips">
-    <button class="gm-chip" onclick="sendQuick('Best travel card?')">✈️ Travel card?</button>
+    <button class="gm-chip" onclick="sendQuick('Best travel card?')">✈️ Travel?</button>
     <button class="gm-chip" onclick="sendQuick('Lifetime free card?')">🆓 Free card?</button>
     <button class="gm-chip" onclick="sendQuick('Best cashback card?')">💰 Cashback?</button>
-    <button class="gm-chip" onclick="sendQuick('Mera monthly spend ₹20,000 hai, kaunsa card best hai?')">💳 My best card?</button>
+    <button class="gm-chip" onclick="sendQuick('Mera monthly spend ₹20,000 hai, kaunsa card best hai?')">💳 Best for me?</button>
   </div>
 
   <div id="gm-listening" style="display:none">
@@ -657,7 +577,7 @@
       <div class="gm-pulse-ring r3"></div>
       <div class="gm-pulse-dot"></div>
     </div>
-    <span>Bol dijiye... I'm listening 🎙️</span>
+    <span>Bol dijiye... 🎙️</span>
   </div>
 
   <div id="gm-input-row">
@@ -666,202 +586,102 @@
     <button id="gm-send-btn" onclick="sendMessage()" title="Send">➤</button>
   </div>
 
-  <div id="gm-footer">CreditCardGyaan.in • Hindi & English • Powered by AI</div>
+  <div id="gm-footer">CreditCardGyaan.in • Hindi & English • Free AI Advisor</div>
 </div>
 
 <style>
-#gm-fab {
-  position:fixed; bottom:24px; right:24px; z-index:99998;
-  background:linear-gradient(135deg,#d4af37,#c9a227);
-  color:#0a0a0f; border-radius:50px; padding:12px 18px 12px 14px;
-  display:flex; align-items:center; gap:8px; cursor:pointer;
-  font-family:Georgia,serif; font-size:14px; font-weight:bold;
-  box-shadow:0 8px 25px rgba(212,175,55,0.45),0 2px 8px rgba(0,0,0,0.3);
-  transition:all 0.3s; user-select:none;
-}
-#gm-fab:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(212,175,55,0.55); }
-#gm-fab-icon { font-size:18px; }
-
-#gm-widget {
-  position:fixed; bottom:88px; right:24px; z-index:99999;
-  width:370px; background:linear-gradient(160deg,#16161f,#1e1e2e);
-  border-radius:20px; border:1px solid rgba(212,175,55,0.25);
-  box-shadow:0 25px 60px rgba(0,0,0,0.7),inset 0 1px 0 rgba(255,255,255,0.05);
-  font-family:Georgia,serif; overflow:hidden;
-  display:none; flex-direction:column; max-height:600px;
-  animation:gmSlideUp 0.3s ease;
-}
-@keyframes gmSlideUp {
-  from { opacity:0; transform:translateY(20px) scale(0.97); }
-  to   { opacity:1; transform:translateY(0) scale(1); }
-}
-
-#gm-header {
-  background:linear-gradient(135deg,#1a1a28,#24243a);
-  padding:14px 16px; border-bottom:1px solid rgba(212,175,55,0.2);
-  display:flex; align-items:center; justify-content:space-between;
-}
-#gm-avatar {
-  width:40px; height:40px; border-radius:50%;
-  background:linear-gradient(135deg,#d4af37,#f5d97e,#c9a227);
-  display:flex; align-items:center; justify-content:center;
-  font-size:18px; box-shadow:0 0 16px rgba(212,175,55,0.4);
-}
-#gm-online-dot {
-  position:absolute; bottom:0; right:0;
-  width:11px; height:11px; border-radius:50%;
-  background:#22c55e; border:2px solid #1a1a28;
-}
-#gm-name { color:#d4af37; font-size:15px; font-weight:bold; }
-#gm-subtitle { color:rgba(212,175,55,0.55); font-size:10px; letter-spacing:1px; text-transform:uppercase; }
-#gm-powered { display:flex; align-items:center; gap:4px; }
-.gm-badge { font-size:9px; border-radius:4px; padding:1px 5px; font-family:Arial,sans-serif; }
-.gm-badge.gold { color:#d4af37; background:rgba(212,175,55,0.12); border:1px solid rgba(212,175,55,0.25); }
-.gm-badge.purple { color:#a78bfa; background:rgba(167,139,250,0.1); border:1px solid rgba(167,139,250,0.25); }
-.gm-icon-btn {
-  background:rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.2);
-  border-radius:7px; color:#d4af37; font-size:13px;
-  width:28px; height:28px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-}
-
-#gm-settings {
-  background:rgba(10,10,20,0.95);
-  border-bottom:1px solid rgba(212,175,55,0.12);
-  padding:12px 16px;
-}
-.gm-settings-label { color:rgba(212,175,55,0.6); font-size:11px; font-family:Arial,sans-serif; margin-bottom:6px; display:block; }
-#gm-sarvam-key {
-  width:100%; background:rgba(255,255,255,0.05);
-  border:1px solid rgba(212,175,55,0.2); border-radius:8px;
-  color:#fff; font-size:12px; padding:7px 10px;
-  outline:none; box-sizing:border-box; font-family:Arial,sans-serif;
-}
-.gm-toggle {
-  width:34px; height:18px; border-radius:9px;
-  background:rgba(255,255,255,0.1); position:relative; cursor:pointer; transition:all 0.2s; flex-shrink:0;
-}
-.gm-toggle::after {
-  content:''; position:absolute; top:2px; left:2px;
-  width:14px; height:14px; border-radius:50%; background:white; transition:all 0.2s;
-}
-.gm-toggle.active { background:#d4af37; }
-.gm-toggle.active::after { left:18px; }
-
-#gm-messages {
-  flex:1; overflow-y:auto; padding:14px;
-  display:flex; flex-direction:column; gap:10px;
-  min-height:200px; max-height:300px;
-  scrollbar-width:thin; scrollbar-color:rgba(212,175,55,0.2) transparent;
-}
-.gm-msg-row { display:flex; align-items:flex-end; gap:7px; animation:gmFadeIn 0.25s ease; }
-.gm-msg-row.user { flex-direction:row-reverse; }
-@keyframes gmFadeIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
-.gm-msg-avatar {
-  width:26px; height:26px; border-radius:50%;
-  background:linear-gradient(135deg,#d4af37,#f5d97e);
-  display:flex; align-items:center; justify-content:center;
-  font-size:12px; flex-shrink:0;
-}
-.gm-bubble { max-width:78%; padding:9px 13px; font-size:13px; line-height:1.5; }
-.gm-bubble.bot {
-  background:rgba(255,255,255,0.06); border:1px solid rgba(212,175,55,0.12);
-  border-radius:16px 16px 16px 3px; color:rgba(255,255,255,0.88);
-}
-.gm-bubble.user {
-  background:linear-gradient(135deg,#d4af37,#c9a227);
-  border-radius:16px 16px 3px 16px; color:#0a0a0f; font-weight:500;
-}
-.gm-time { font-size:9px; color:rgba(255,255,255,0.2); margin-top:3px; font-family:Arial,sans-serif; }
-.gm-time.user { text-align:right; padding-right:3px; }
-.gm-time.bot { padding-left:3px; }
-.gm-typing { display:flex; gap:4px; align-items:center; padding:4px 2px; }
-.gm-dot { width:6px; height:6px; border-radius:50%; background:#d4af37; animation:gmBounce 1.2s ease-in-out infinite; }
-.gm-dot:nth-child(2){animation-delay:0.2s} .gm-dot:nth-child(3){animation-delay:0.4s}
-@keyframes gmBounce { 0%,100%{transform:translateY(0);opacity:0.5} 50%{transform:translateY(-5px);opacity:1} }
-
-#gm-chips { padding:0 14px 8px; display:flex; gap:5px; flex-wrap:wrap; }
-.gm-chip {
-  background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.2);
-  border-radius:20px; color:rgba(212,175,55,0.8);
-  font-size:10px; padding:4px 9px; cursor:pointer;
-  font-family:Arial,sans-serif; transition:all 0.2s;
-}
-.gm-chip:hover { background:rgba(212,175,55,0.15); }
-
-#gm-listening {
-  padding:8px 16px; display:flex; align-items:center;
-  justify-content:center; gap:12px;
-  color:#d4af37; font-size:12px; font-family:Arial,sans-serif;
-}
-.gm-pulse-wrap { position:relative; width:28px; height:28px; display:flex; align-items:center; justify-content:center; }
-.gm-pulse-ring { position:absolute; border-radius:50%; border:1.5px solid rgba(212,175,55,0.5); animation:gmPulse 1.5s ease-out infinite; }
-.r1{width:10px;height:10px;animation-delay:0s} .r2{width:18px;height:18px;animation-delay:0.3s} .r3{width:26px;height:26px;animation-delay:0.6s}
-.gm-pulse-dot { width:8px; height:8px; border-radius:50%; background:#d4af37; }
-@keyframes gmPulse { 0%{transform:scale(0.5);opacity:1} 100%{transform:scale(1.8);opacity:0} }
-
-#gm-input-row {
-  padding:10px 14px 12px; border-top:1px solid rgba(212,175,55,0.1);
-  display:flex; gap:6px; align-items:center;
-}
-#gm-input {
-  flex:1; background:rgba(255,255,255,0.05);
-  border:1px solid rgba(212,175,55,0.2); border-radius:10px;
-  color:#fff; font-size:12.5px; padding:9px 12px;
-  outline:none; font-family:Georgia,serif; transition:border-color 0.2s;
-}
-#gm-input:focus { border-color:rgba(212,175,55,0.45); }
-#gm-input::placeholder { color:rgba(255,255,255,0.2); }
-#gm-mic-btn, #gm-send-btn {
-  width:38px; height:38px; border-radius:10px; font-size:16px;
-  cursor:pointer; display:flex; align-items:center; justify-content:center;
-  flex-shrink:0; transition:all 0.2s; border:none;
-}
-#gm-mic-btn { background:rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.25); color:#d4af37; }
-#gm-mic-btn.active { background:linear-gradient(135deg,#ef4444,#dc2626); color:white; }
-#gm-send-btn { background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.2); }
-#gm-send-btn.ready { background:linear-gradient(135deg,#d4af37,#c9a227); color:#0a0a0f; box-shadow:0 4px 14px rgba(212,175,55,0.3); }
-
-#gm-footer {
-  text-align:center; padding:6px 16px 10px;
-  color:rgba(255,255,255,0.18); font-size:9.5px;
-  font-family:Arial,sans-serif; border-top:1px solid rgba(255,255,255,0.04);
-}
-
-@media(max-width:430px) {
-  #gm-widget { width:calc(100vw - 20px); right:10px; bottom:76px; }
-  #gm-fab { right:16px; bottom:16px; }
-}
+#gm-fab{position:fixed;bottom:24px;right:24px;z-index:99998;background:linear-gradient(135deg,#d4af37,#c9a227);color:#0a0a0f;border-radius:50px;padding:12px 18px 12px 14px;display:flex;align-items:center;gap:8px;cursor:pointer;font-family:Georgia,serif;font-size:14px;font-weight:bold;box-shadow:0 8px 25px rgba(212,175,55,0.45),0 2px 8px rgba(0,0,0,0.3);transition:all 0.3s;user-select:none;}
+#gm-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(212,175,55,0.55);}
+#gm-fab-icon{font-size:18px;}
+#gm-widget{position:fixed;bottom:88px;right:24px;z-index:99999;width:370px;background:linear-gradient(160deg,#16161f,#1e1e2e);border-radius:20px;border:1px solid rgba(212,175,55,0.25);box-shadow:0 25px 60px rgba(0,0,0,0.7),inset 0 1px 0 rgba(255,255,255,0.05);font-family:Georgia,serif;overflow:hidden;display:none;flex-direction:column;max-height:600px;animation:gmSlideUp 0.3s ease;}
+@keyframes gmSlideUp{from{opacity:0;transform:translateY(20px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+#gm-header{background:linear-gradient(135deg,#1a1a28,#24243a);padding:14px 16px;border-bottom:1px solid rgba(212,175,55,0.2);display:flex;align-items:center;justify-content:space-between;}
+#gm-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#d4af37,#f5d97e,#c9a227);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 0 16px rgba(212,175,55,0.4);}
+#gm-online-dot{position:absolute;bottom:0;right:0;width:11px;height:11px;border-radius:50%;background:#22c55e;border:2px solid #1a1a28;}
+#gm-name{color:#d4af37;font-size:15px;font-weight:bold;}
+#gm-subtitle{color:rgba(212,175,55,0.55);font-size:10px;letter-spacing:1px;text-transform:uppercase;}
+#gm-powered{display:flex;align-items:center;gap:4px;}
+.gm-badge{font-size:9px;border-radius:4px;padding:1px 5px;font-family:Arial,sans-serif;}
+.gm-badge.gold{color:#d4af37;background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.25);}
+.gm-badge.purple{color:#a78bfa;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);}
+.gm-icon-btn{background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.2);border-radius:7px;color:#d4af37;font-size:13px;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+#gm-settings{background:rgba(10,10,20,0.95);border-bottom:1px solid rgba(212,175,55,0.12);padding:12px 16px;}
+.gm-settings-label{color:rgba(212,175,55,0.6);font-size:11px;font-family:Arial,sans-serif;margin-bottom:6px;display:block;}
+.gm-toggle{width:34px;height:18px;border-radius:9px;background:rgba(255,255,255,0.1);position:relative;cursor:pointer;transition:all 0.2s;flex-shrink:0;}
+.gm-toggle::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:white;transition:all 0.2s;}
+.gm-toggle.active{background:#d4af37;}
+.gm-toggle.active::after{left:18px;}
+#gm-messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:200px;max-height:300px;scrollbar-width:thin;scrollbar-color:rgba(212,175,55,0.2) transparent;}
+.gm-msg-row{display:flex;align-items:flex-end;gap:7px;animation:gmFadeIn 0.25s ease;}
+.gm-msg-row.user{flex-direction:row-reverse;}
+@keyframes gmFadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.gm-msg-avatar{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#d4af37,#f5d97e);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;}
+.gm-bubble{max-width:78%;padding:9px 13px;font-size:13px;line-height:1.6;}
+.gm-bubble.bot{background:rgba(255,255,255,0.06);border:1px solid rgba(212,175,55,0.12);border-radius:16px 16px 16px 3px;color:rgba(255,255,255,0.88);}
+.gm-bubble.user{background:linear-gradient(135deg,#d4af37,#c9a227);border-radius:16px 16px 3px 16px;color:#0a0a0f;font-weight:500;}
+.gm-bubble a{color:#d4af37;text-decoration:underline;}
+.gm-bubble.user a{color:#0a0a0f;}
+.gm-apply-btn{display:inline-block;margin-top:8px;padding:7px 14px;background:linear-gradient(135deg,#d4af37,#c9a227);color:#0a0a0f!important;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none!important;font-family:Arial,sans-serif;transition:all 0.2s;}
+.gm-apply-btn:hover{transform:scale(1.03);}
+.gm-time{font-size:9px;color:rgba(255,255,255,0.2);margin-top:3px;font-family:Arial,sans-serif;}
+.gm-time.user{text-align:right;padding-right:3px;}
+.gm-time.bot{padding-left:3px;}
+.gm-typing{display:flex;gap:4px;align-items:center;padding:4px 2px;}
+.gm-dot{width:6px;height:6px;border-radius:50%;background:#d4af37;animation:gmBounce 1.2s ease-in-out infinite;}
+.gm-dot:nth-child(2){animation-delay:0.2s}.gm-dot:nth-child(3){animation-delay:0.4s}
+@keyframes gmBounce{0%,100%{transform:translateY(0);opacity:0.5}50%{transform:translateY(-5px);opacity:1}}
+#gm-chips{padding:0 14px 8px;display:flex;gap:5px;flex-wrap:wrap;}
+.gm-chip{background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);border-radius:20px;color:rgba(212,175,55,0.8);font-size:10px;padding:4px 9px;cursor:pointer;font-family:Arial,sans-serif;transition:all 0.2s;}
+.gm-chip:hover{background:rgba(212,175,55,0.15);}
+#gm-listening{padding:8px 16px;display:flex;align-items:center;justify-content:center;gap:12px;color:#d4af37;font-size:12px;font-family:Arial,sans-serif;}
+.gm-pulse-wrap{position:relative;width:28px;height:28px;display:flex;align-items:center;justify-content:center;}
+.gm-pulse-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(212,175,55,0.5);animation:gmPulse 1.5s ease-out infinite;}
+.r1{width:10px;height:10px;animation-delay:0s}.r2{width:18px;height:18px;animation-delay:0.3s}.r3{width:26px;height:26px;animation-delay:0.6s}
+.gm-pulse-dot{width:8px;height:8px;border-radius:50%;background:#d4af37;}
+@keyframes gmPulse{0%{transform:scale(0.5);opacity:1}100%{transform:scale(1.8);opacity:0}}
+#gm-input-row{padding:10px 14px 12px;border-top:1px solid rgba(212,175,55,0.1);display:flex;gap:6px;align-items:center;}
+#gm-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.2);border-radius:10px;color:#fff;font-size:12.5px;padding:9px 12px;outline:none;font-family:Georgia,serif;transition:border-color 0.2s;}
+#gm-input:focus{border-color:rgba(212,175,55,0.45);}
+#gm-input::placeholder{color:rgba(255,255,255,0.2);}
+#gm-mic-btn,#gm-send-btn{width:38px;height:38px;border-radius:10px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;border:none;}
+#gm-mic-btn{background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.25);color:#d4af37;}
+#gm-mic-btn.active{background:linear-gradient(135deg,#ef4444,#dc2626);color:white;}
+#gm-send-btn{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.2);}
+#gm-send-btn.ready{background:linear-gradient(135deg,#d4af37,#c9a227);color:#0a0a0f;box-shadow:0 4px 14px rgba(212,175,55,0.3);}
+#gm-footer{text-align:center;padding:6px 16px 10px;color:rgba(255,255,255,0.18);font-size:9.5px;font-family:Arial,sans-serif;border-top:1px solid rgba(255,255,255,0.04);}
+@media(max-width:430px){#gm-widget{width:calc(100vw - 20px);right:10px;bottom:76px;}#gm-fab{right:16px;bottom:16px;}}
 </style>
 
 <script>
 (function(){
+  const APPLY_URL = 'https://www.creditcardgyaan.in/#cards';
   const SYSTEM = `You are Gyaan Mitra, an expert AI credit card advisor for CreditCardGyaan.in — India's most trusted credit card comparison platform.
 
-You help Indian users find the best credit card. You know about:
-- HDFC Regalia Gold (travel, lounge access, ₹2,500/yr fee)
-- HDFC MoneyBack+ (cashback, groceries, ₹500/yr fee)
-- SBI SimplyCLICK (online shopping, ₹499/yr fee)
-- Axis Flipkart Credit Card (5% on Flipkart, free 1st year)
-- ICICI Amazon Pay (5% on Amazon, lifetime free)
-- Axis ACE (5% on GPay/Swiggy/Zomato, ₹499/yr fee)
-- Tata Neu Infinity HDFC (Tata ecosystem, ₹1,499/yr fee)
-- IDFC FIRST Classic (lifetime free, no forex markup)
-- AU Small Finance Lit Card (customizable lifestyle card)
+You help Indian users find the best credit card. Cards available:
+- HDFC Millennia (cashback 5% Amazon/Flipkart, ₹999/yr fee) - apply: https://wee.bnking.in/c/ZDk3MTI4M
+- HDFC Regalia Gold (travel, 12 lounge visits, ₹2,500/yr fee) - apply: https://www.creditcardgyaan.in/#cards
+- SBI SimplyCLICK (online shopping, ₹499/yr fee) - apply: https://www.creditcardgyaan.in/#cards
+- Axis Flipkart (5% on Flipkart, ₹500/yr fee) - apply: https://www.creditcardgyaan.in/#cards
+- ICICI Amazon Pay (5% on Amazon, LIFETIME FREE) - apply: https://www.creditcardgyaan.in/#cards
+- Axis ACE (5% on GPay/Swiggy/Zomato, ₹499/yr fee) - apply: https://www.creditcardgyaan.in/#cards
+- Kotak 811 (lifetime free, no annual fee, beginners) - apply: https://www.creditcardgyaan.in/#cards
+- IDFC FIRST Classic (lifetime free, no forex markup) - apply: https://www.creditcardgyaan.in/#cards
 
-Always reply in same language as user (Hindi, Hinglish, or English).
-Keep answers short — 2-4 sentences. Always end by suggesting to apply via CreditCardGyaan.in.`;
+Rules:
+- Always reply in same language as user (Hindi, Hinglish, or English)
+- Keep answers short — 2-4 sentences max
+- Always end your reply with: APPLY_LINK: [card name]|[apply url]
+- Example ending: APPLY_LINK: ICICI Amazon Pay|https://www.creditcardgyaan.in/#cards`;
 
   let history = [];
   let voiceOn = true;
   let isListening = false;
   let recognition = null;
   let currentAudio = null;
-  let sarvamKey = '';
 
   window.addEventListener('load', function(){
-    const greeting = 'Namaste! 🙏 Main Gyaan Mitra hoon — aapka AI credit card advisor. Bataiye, aapko kaunse type ka card chahiye? Travel, cashback, ya shopping?';
-    addMsg('bot', greeting);
+    const greeting = 'Namaste! 🙏 Main Gyaan Mitra hoon — aapka AI credit card advisor. Kaunse type ka card chahiye? Travel, cashback, ya shopping?';
+    addMsg('bot', greeting, null, null);
     history = [{ role:'assistant', content: greeting }];
   });
 
@@ -880,10 +700,6 @@ Keep answers short — 2-4 sentences. Always end by suggesting to apply via Cred
     s.style.display = s.style.display === 'none' ? 'block' : 'none';
   }
 
-  window.saveSarvamKey = function(){
-    sarvamKey = document.getElementById('gm-sarvam-key').value;
-  }
-
   window.toggleVoice = function(){
     voiceOn = !voiceOn;
     const t = document.getElementById('gm-voice-toggle');
@@ -896,54 +712,65 @@ Keep answers short — 2-4 sentences. Always end by suggesting to apply via Cred
     sendMessage();
   }
 
-  window.handleKey = function(e){
-    if(e.key === 'Enter') sendMessage();
-  }
+  window.handleKey = function(e){ if(e.key==='Enter') sendMessage(); }
 
   window.updateSendBtn = function(){
     const btn = document.getElementById('gm-send-btn');
-    document.getElementById('gm-input').value.trim()
-      ? btn.classList.add('ready')
-      : btn.classList.remove('ready');
+    document.getElementById('gm-input').value.trim() ? btn.classList.add('ready') : btn.classList.remove('ready');
   }
 
   window.sendMessage = async function(){
     const inp = document.getElementById('gm-input');
     const text = inp.value.trim();
     if(!text) return;
-    inp.value = '';
-    updateSendBtn();
-
-    addMsg('user', text);
+    inp.value = ''; updateSendBtn();
+    addMsg('user', text, null, null);
     history.push({ role:'user', content: text });
     showTyping();
-
     try {
-      // ✅ Calls your secure /api/chat proxy — API key stays hidden on server
       const res = await fetch('/api/chat', {
         method:'POST',
-        headers:{ 'Content-Type':'application/json' },
+        headers:{'Content-Type':'application/json'},
         body: JSON.stringify({ messages: history, system: SYSTEM })
       });
       const data = await res.json();
-      const reply = data.content?.[0]?.text || 'Sorry, ek baar phir try karein.';
+      let reply = data.content?.[0]?.text || 'Sorry, ek baar phir try karein.';
+
+      // Extract apply link if present
+      let applyUrl = null, applyLabel = null;
+      const applyMatch = reply.match(/APPLY_LINK:\s*([^|]+)\|(.+)/);
+      if(applyMatch){
+        applyLabel = applyMatch[1].trim();
+        applyUrl = applyMatch[2].trim();
+        reply = reply.replace(/APPLY_LINK:.*/, '').trim();
+      }
+
       hideTyping();
-      addMsg('bot', reply);
+      addMsg('bot', reply, applyUrl, applyLabel);
       history.push({ role:'assistant', content: reply });
-      if(voiceOn && sarvamKey) speakSarvam(reply);
+      if(voiceOn) speakTTS(reply);
     } catch(e){
       hideTyping();
-      addMsg('bot', 'Network error. Please try again.');
+      addMsg('bot', 'Network error. Please try again.', null, null);
     }
   }
 
-  function addMsg(type, text){
+  function addMsg(type, text, applyUrl, applyLabel){
     const box = document.getElementById('gm-messages');
     const time = new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
     const row = document.createElement('div');
     row.className = 'gm-msg-row ' + (type==='user' ? 'user' : '');
+
+    // Convert URLs to clickable links
+    const linkedText = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+
+    // Apply button HTML
+    const applyBtn = (applyUrl && type==='bot')
+      ? `<br><a href="${applyUrl}" target="_blank" class="gm-apply-btn">✅ Apply for ${applyLabel} →</a>`
+      : '';
+
     row.innerHTML = type==='bot'
-      ? `<div class="gm-msg-avatar">🎓</div><div><div class="gm-bubble bot">${text}</div><div class="gm-time bot">${time}</div></div>`
+      ? `<div class="gm-msg-avatar">🎓</div><div><div class="gm-bubble bot">${linkedText}${applyBtn}</div><div class="gm-time bot">${time}</div></div>`
       : `<div><div class="gm-bubble user">${text}</div><div class="gm-time user">${time}</div></div>`;
     box.appendChild(row);
     box.scrollTop = box.scrollHeight;
@@ -952,62 +779,52 @@ Keep answers short — 2-4 sentences. Always end by suggesting to apply via Cred
   function showTyping(){
     const box = document.getElementById('gm-messages');
     const t = document.createElement('div');
-    t.className = 'gm-msg-row'; t.id = 'gm-typing-row';
-    t.innerHTML = `<div class="gm-msg-avatar">🎓</div><div class="gm-bubble bot"><div class="gm-typing"><div class="gm-dot"></div><div class="gm-dot"></div><div class="gm-dot"></div></div></div>`;
-    box.appendChild(t);
-    box.scrollTop = box.scrollHeight;
+    t.className='gm-msg-row'; t.id='gm-typing-row';
+    t.innerHTML=`<div class="gm-msg-avatar">🎓</div><div class="gm-bubble bot"><div class="gm-typing"><div class="gm-dot"></div><div class="gm-dot"></div><div class="gm-dot"></div></div></div>`;
+    box.appendChild(t); box.scrollTop=box.scrollHeight;
   }
   function hideTyping(){ document.getElementById('gm-typing-row')?.remove(); }
 
   window.toggleMic = function(){
     if(isListening){ stopMic(); return; }
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if(!SR){ alert('Voice not supported. Please use Chrome.'); return; }
+    if(!SR){ alert('Voice not supported. Use Chrome browser.'); return; }
     recognition = new SR();
     recognition.lang = 'hi-IN';
     recognition.interimResults = false;
     recognition.onstart = ()=>{
-      isListening = true;
+      isListening=true;
       document.getElementById('gm-mic-btn').classList.add('active');
-      document.getElementById('gm-mic-btn').textContent = '⏹';
-      document.getElementById('gm-listening').style.display = 'flex';
+      document.getElementById('gm-mic-btn').textContent='⏹';
+      document.getElementById('gm-listening').style.display='flex';
     };
     recognition.onresult = (e)=>{
       document.getElementById('gm-input').value = e.results[0][0].transcript;
       updateSendBtn(); stopMic(); sendMessage();
     };
-    recognition.onerror = stopMic;
-    recognition.onend = stopMic;
+    recognition.onerror = stopMic; recognition.onend = stopMic;
     recognition.start();
   }
 
   function stopMic(){
-    isListening = false; recognition?.stop();
+    isListening=false; recognition?.stop();
     document.getElementById('gm-mic-btn').classList.remove('active');
-    document.getElementById('gm-mic-btn').textContent = '🎙️';
-    document.getElementById('gm-listening').style.display = 'none';
+    document.getElementById('gm-mic-btn').textContent='🎙️';
+    document.getElementById('gm-listening').style.display='none';
   }
 
-  async function speakSarvam(text){
-    if(!sarvamKey) return;
+  async function speakTTS(text){
     try {
       currentAudio?.pause();
-      const res = await fetch('https://api.sarvam.ai/text-to-speech', {
+      const res = await fetch('/api/tts', {
         method:'POST',
-        headers:{ 'Content-Type':'application/json', 'api-subscription-key': sarvamKey },
-        body: JSON.stringify({
-          inputs:[text.slice(0,500)],
-          target_language_code:'hi-IN',
-          speaker:'meera',
-          pitch:0, pace:1.0, loudness:1.5,
-          speech_sample_rate:22050,
-          enable_preprocessing:true,
-          model:'bulbul:v1'
-        })
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ text: text.slice(0,400) })
       });
       const data = await res.json();
-      if(data.audios?.[0]){
-        currentAudio = new Audio('data:audio/wav;base64,' + data.audios[0]);
+      if(data.audio){
+        const fmt = data.format === 'mp3' ? 'audio/mp3' : 'audio/wav';
+        currentAudio = new Audio(`data:${fmt};base64,${data.audio}`);
         currentAudio.play();
       }
     } catch(e){}
